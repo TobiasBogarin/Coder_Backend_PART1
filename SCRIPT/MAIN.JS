@@ -1,6 +1,5 @@
 const apiUrl = "http://localhost:8080/api/products";
 
-// Función para obtener y mostrar productos
 async function fetchProducts() {
     const response = await fetch(apiUrl);
     const products = await response.json();
@@ -22,7 +21,6 @@ async function fetchProducts() {
     });
 }
 
-// Función para agregar un producto
 document.getElementById('product-form').addEventListener('submit', async (e) => {
     e.preventDefault();
 
@@ -39,18 +37,17 @@ document.getElementById('product-form').addEventListener('submit', async (e) => 
         body: JSON.stringify(newProduct)
     });
 
-    fetchProducts(); // Actualizar la lista
+    fetchProducts(); 
     e.target.reset();
 });
 
-// Función para eliminar un producto
+
 async function deleteProduct(productId) {
     await fetch(`${apiUrl}/${productId}`, {
         method: 'DELETE'
     });
 
-    fetchProducts(); // Actualizar la lista
+    fetchProducts(); 
 }
 
-// Inicializar la lista de productos al cargar la página
 fetchProducts();

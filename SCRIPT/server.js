@@ -4,10 +4,10 @@ const path = require('path');
 const app = express();
 const port = 8080;
 
-// Middleware para servir archivos estáticos desde el directorio raíz
+
 app.use(express.static(path.join(__dirname, '../')));
 
-// Endpoint para productos
+
 const products = [];
 app.use(express.json());
 
